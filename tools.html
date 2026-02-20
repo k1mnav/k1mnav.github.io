@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools & Software — Kim Navarro</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #666;
+      --subtle: #999;
+      --border: #e8e8e8;
+      --bg: #fafaf8;
+      --code-bg: #f5f5f3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 18px; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 5rem 0 4rem;
+    }
+
+    header {
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: normal;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
+
+    th {
+      text-align: left;
+      font-weight: normal;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      padding: 0.75rem 0.5rem;
+      border-bottom: 2px solid var(--border);
+      background: var(--code-bg);
+    }
+
+    td {
+      padding: 0.75rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td:first-child { font-family: 'Courier New', Courier, monospace; font-weight: bold; }
+    td:nth-child(2) { color: var(--muted); font-family: 'Courier New', Courier, monospace; font-size: 0.85rem; }
+    td:last-child { color: var(--subtle); font-size: 0.85rem; }
+
+    .conda { background: #f0f8ff; font-size: 0.75rem; padding: 0.1rem 0.3rem; border-radius: 2px; }
+    .bioc { background: #fff0f5; font-size: 0.75rem; padding: 0.1rem 0.3rem; border-radius: 2px; }
+    .cran { background: #f0fff0; font-size: 0.75rem; padding: 0.1rem 0.3rem; border-radius: 2px; }
+    .system { background: #faf0e6; font-size: 0.75rem; padding: 0.1rem 0.3rem; border-radius: 2px; }
+
+    .legend {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .legend-box {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    .nav {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: var(--code-bg);
+      border-left: 3px solid var(--subtle);
+    }
+
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      margin-right: 1.5rem;
+    }
+
+    .nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>Tools & Software</h1>
+      <div class="subtitle">Bioinformatics • Genomics • Data Analytics</div>
+    </header>
+
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-box conda"></div>
+        <span>Conda (mamba)</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-box bioc"></div>
+        <span>Bioconductor</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-box cran"></div>
+        <span>CRAN</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-box system"></div>
+        <span>System</span>
+      </div>
+    </div>
+
+    <!-- DNA Methylation -->
+    <h2>DNA Methylation</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Version</th>
+          <th>Source</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>minfi</td>
+          <td>latest</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>EPIC/450K array analysis, normalisation, QC</td>
+        </tr>
+        <tr>
+          <td>bsseq</td>
+          <td>latest</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>WGBS/RRBS smoothing, DMR calling, visualisation</td>
+        </tr>
+        <tr>
+          <td>methylKit</td>
+          <td>latest</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>WGBS/RRBS differential methylation analysis</td>
+        </tr>
+        <tr>
+          <td>bismark</td>
+          <td>0.25.1</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Bisulfite sequencing alignment, methylation extraction</td>
+        </tr>
+        <tr>
+          <td>MethylDackel</td>
+          <td>0.6.1</td>
+          <td><span class="conda">Conda</span></td>
+          <td>WGBS/RRBS methylation extraction from BAM</td>
+        </tr>
+        <tr>
+          <td>bwameth</td>
+          <td>0.2.9</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Bisulfite-aware BWA alignment</td>
+        </tr>
+        <tr>
+          <td>wgbstools</td>
+          <td>0.2.0</td>
+          <td>GitHub (source)</td>
+          <td>WGBS pipeline tools, methylation analysis utilities</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- RNA-seq & Expression -->
+    <h2>RNA-seq & Expression Analysis</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Version</th>
+          <th>Source</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>STAR</td>
+          <td>2.7.11b</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Splicing-aware RNA-seq alignment</td>
+        </tr>
+        <tr>
+          <td>salmon</td>
+          <td>1.10.3</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Fast, accurate transcript quantification</td>
+        </tr>
+        <tr>
+          <td>DESeq2</td>
+          <td>latest</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>RNA-seq differential expression (count-based)</td>
+        </tr>
+        <tr>
+          <td>edgeR</td>
+          <td>latest</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>RNA-seq differential expression (GLM-based)</td>
+        </tr>
+        <tr>
+          <td>limma</td>
+          <td>latest</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>Linear models for arrays, RNA-seq, general statistics</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Alignment & Mapping -->
+    <h2>Alignment & Mapping</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Version</th>
+          <th>Source</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>bwa</td>
+          <td>0.7.19</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Short-read alignment (DNA-seq)</td>
+        </tr>
+        <tr>
+          <td>bowtie2</td>
+          <td>2.5.4</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Short-read alignment, ChIP-seq</td>
+        </tr>
+        <tr>
+          <td>hisat2</td>
+          <td>2.2.2</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Splicing-aware alignment (RNA-seq)</td>
+        </tr>
+        <tr>
+          <td>minimap2</td>
+          <td>2.30</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Long-read alignment (PacBio, Oxford Nanopore)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Variant & VCF Tools -->
+    <h2>Variant Calling & VCF</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Version</th>
+          <th>Source</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GATK</td>
+          <td>4.6.2</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Variant calling (germline & somatic), joint calling</td>
+        </tr>
+        <tr>
+          <td>bcftools</td>
+          <td>1.23</td>
+          <td><span class="conda">Conda</span></td>
+          <td>VCF manipulation, filtering, statistics</td>
+        </tr>
+        <tr>
+          <td>vcftools</td>
+          <td>0.1.17</td>
+          <td><span class="conda">Conda</span></td>
+          <td>VCF analysis, population genetics</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Quality Control -->
+    <h2>Quality Control</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Version</th>
+          <th>Source</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>FastQC</td>
+          <td>0.12.1</td>
+          <td><span class="conda">Conda</span></td>
+          <td>FASTQ quality assessment</td>
+        </tr>
+        <tr>
+          <td>MultiQC</td>
+          <td>1.33</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Aggregate QC reports from multiple tools</td>
+        </tr>
+        <tr>
+          <td>Trim-Galore</td>
+          <td>0.6.10</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Quality-based trimming and adapter removal</td>
+        </tr>
+        <tr>
+          <td>mosdepth</td>
+          <td>0.3.11</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Fast BAM depth calculation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Utilities & Genomics -->
+    <h2>Utilities & Genomics</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Version</th>
+          <th>Source</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>samtools</td>
+          <td>1.23</td>
+          <td><span class="conda">Conda</span></td>
+          <td>BAM/SAM/CRAM manipulation, indexing, conversion</td>
+        </tr>
+        <tr>
+          <td>bedtools</td>
+          <td>2.31.1</td>
+          <td><span class="conda">Conda</span></td>
+          <td>BED/GFF/VCF interval operations</td>
+        </tr>
+        <tr>
+          <td>deeptools</td>
+          <td>3.5.6</td>
+          <td><span class="conda">Conda</span></td>
+          <td>ChIP-seq, ATAC-seq visualisation (bigWig, heatmaps)</td>
+        </tr>
+        <tr>
+          <td>picard</td>
+          <td>3.4.0</td>
+          <td><span class="conda">Conda</span></td>
+          <td>SAM/BAM tools, duplicate marking, metrics</td>
+        </tr>
+        <tr>
+          <td>UCSC kent tools</td>
+          <td>various</td>
+          <td><span class="conda">Conda</span></td>
+          <td>liftOver, bigWigToBedGraph, bedToBigBed, etc.</td>
+        </tr>
+        <tr>
+          <td>SRA toolkit</td>
+          <td>3.2.1</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Download & convert SRA data (fasterq-dump, prefetch)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- R Packages -->
+    <h2>R Packages (153 total)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Package</th>
+          <th>Source</th>
+          <th>Use</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>tidyverse</td>
+          <td><span class="cran">CRAN</span></td>
+          <td>Data wrangling (dplyr, tidyr, readr, purrr)</td>
+          <td>Core data manipulation</td>
+        </tr>
+        <tr>
+          <td>ggplot2</td>
+          <td><span class="cran">CRAN</span></td>
+          <td>Visualisation with grammar of graphics</td>
+          <td>Paired with custom theme_nature.R</td>
+        </tr>
+        <tr>
+          <td>patchwork</td>
+          <td><span class="cran">CRAN</span></td>
+          <td>Multi-panel figure composition</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>GenomicRanges</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>Core genomic interval data structures</td>
+          <td>Foundation for genomics work</td>
+        </tr>
+        <tr>
+          <td>clusterProfiler</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>Gene set enrichment, GO, KEGG analysis</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>biomaRt</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>Ensembl gene annotations via R</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>rentrez</td>
+          <td><span class="cran">CRAN</span></td>
+          <td>NCBI Entrez API access from R</td>
+          <td>PubMed, SRA queries</td>
+        </tr>
+        <tr>
+          <td>GEOquery</td>
+          <td><span class="bioc">Bioconductor</span></td>
+          <td>Download GEO datasets</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>here</td>
+          <td><span class="cran">CRAN</span></td>
+          <td>Reproducible file paths</td>
+          <td>Replaces setwd()</td>
+        </tr>
+        <tr>
+          <td>renv</td>
+          <td><span class="cran">CRAN</span></td>
+          <td>Package version management</td>
+          <td>Reproducibility</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Python & Data Science -->
+    <h2>Python & Data Science</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Package</th>
+          <th>Version</th>
+          <th>Source</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>numpy</td>
+          <td>latest</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Numerical computing</td>
+        </tr>
+        <tr>
+          <td>pandas</td>
+          <td>latest</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Data manipulation & analysis</td>
+        </tr>
+        <tr>
+          <td>scipy</td>
+          <td>latest</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Scientific computing & statistics</td>
+        </tr>
+        <tr>
+          <td>matplotlib</td>
+          <td>latest</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Plotting & visualisation</td>
+        </tr>
+        <tr>
+          <td>seaborn</td>
+          <td>latest</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Statistical data visualisation</td>
+        </tr>
+        <tr>
+          <td>pysam</td>
+          <td>0.23.3</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Python bindings for samtools/htslib</td>
+        </tr>
+        <tr>
+          <td>pybedtools</td>
+          <td>0.12.0</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Python bindings for bedtools</td>
+        </tr>
+        <tr>
+          <td>biopython</td>
+          <td>latest</td>
+          <td><span class="conda">Conda</span></td>
+          <td>Biological computing toolkit</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Reference Data -->
+    <h2>Reference Data</h2>
+    <p style="margin-bottom: 1rem; font-size: 0.9rem;">
+      Downloaded to <code>~/reference/</code>. See INSTALL_LOG.md for download details.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Version/Build</th>
+          <th>Size</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Homo_sapiens.GRCh38.110.gtf.gz</td>
+          <td>Ensembl v110</td>
+          <td>52 MB</td>
+          <td>Gene annotation (GENCODE)</td>
+        </tr>
+        <tr>
+          <td>hg38.chrom.sizes</td>
+          <td>UCSC hg38</td>
+          <td>~1 KB</td>
+          <td>Chromosome sizes for all tools</td>
+        </tr>
+        <tr>
+          <td>cpgIslandExt.bed.gz</td>
+          <td>UCSC hg38</td>
+          <td>~1 MB</td>
+          <td>CpG island annotations (32,038 islands)</td>
+        </tr>
+        <tr>
+          <td>ENCFF356LFX.bed.gz</td>
+          <td>ENCODE blacklist v2</td>
+          <td>~100 KB</td>
+          <td>Blacklist regions to exclude from analysis</td>
+        </tr>
+        <tr>
+          <td>hg19ToHg38.over.chain.gz</td>
+          <td>UCSC liftOver</td>
+          <td>~50 MB</td>
+          <td>Coordinate conversion hg19 → hg38</td>
+        </tr>
+        <tr>
+          <td>hg38ToHg19.over.chain.gz</td>
+          <td>UCSC liftOver</td>
+          <td>~45 MB</td>
+          <td>Coordinate conversion hg38 → hg19</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Custom Tools -->
+    <h2>Custom Scripts & Helpers</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Language</th>
+          <th>Purpose</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>theme_nature.R</td>
+          <td>R</td>
+          <td>ggplot2 theme (Nature-style, Tufte-inspired)</td>
+          <td>bioinfo/templates/</td>
+        </tr>
+        <tr>
+          <td>search.py</td>
+          <td>Python</td>
+          <td>Web search via Serper API (Google results)</td>
+          <td>tools/</td>
+        </tr>
+        <tr>
+          <td>backup.sh</td>
+          <td>Bash</td>
+          <td>Git backup to kim-backup repo (8am + 8pm cron)</td>
+          <td>tools/</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <p>
+        Complete inventory of installed tools, versions, and dependencies.
+        For installation details, see <a href="https://github.com/k1mnav/kim-backup/blob/main/bioinfo/INSTALL_LOG.md">INSTALL_LOG.md</a>.
+        Updated: 2026-02-20
+      </p>
+      <p style="margin-top: 1rem;">
+        <a href="/">← Back to home</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
